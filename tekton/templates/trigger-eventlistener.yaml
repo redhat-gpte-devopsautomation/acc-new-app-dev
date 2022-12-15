@@ -1,0 +1,14 @@
+---
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: eventlistener
+  namespace: {{ .Values.tektonNamespace }}
+spec:
+  serviceAccountName: pipeline
+  triggers:
+  - name: gitea-quarkus-pipeline
+    bindings:
+    - ref: gitea
+    template:
+      ref: quarkus-pipeline
