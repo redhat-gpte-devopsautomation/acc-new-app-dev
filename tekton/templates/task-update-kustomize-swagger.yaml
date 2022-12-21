@@ -2,7 +2,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: update-kustomize-superheroes-swagger
+  name: update-swagger
   namespace: {{ .Values.tektonNamespace }}
   annotations:
     tekton.dev/displayName: "Update Kustomize Swagger URL in Git Repository"
@@ -19,15 +19,15 @@ spec:
   - name: restFightsKustomization
     description: Path of the rest fights kustomization file to patch
     type: string
-    default: "deploy/kustomize/rest-fights/kustomization.yaml"
+    default: {{ .Values.app.repo.gitops.path }}/rest-fights/kustomization.yaml
   - name: restHeroesKustomization
     description: Path of the rest heroes kustomization file to patch
     type: string
-    default: "deploy/kustomize/rest-heroes/kustomization.yaml"
+    default: {{ .Values.app.repo.gitops.path }}/rest-heroes/kustomization.yaml
   - name: restVillainsKustomization
     description: Path of the rest villains kustomization file to patch
     type: string
-    default: "deploy/kustomize/rest-villains/kustomization.yaml"
+    default: {{ .Values.app.repo.gitops.path }}/rest-villains/kustomization.yaml
   - name: restFightsOpenapiServers
     description: The mp.openapi.servers property to patch
     type: string

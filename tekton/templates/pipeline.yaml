@@ -37,7 +37,7 @@ spec:
   - name: KUSTOMIZE_GIT_CONTEXT_DIR
     type: string
     description: The subdirectory in the kustomize git repository
-    default: {{ .Values.app.repo.gitops.path }}
+    default: {{ .Values.app.repo.gitops.path }}/{{ .Values.app.name }}
 
   workspaces:
   - name: app-source

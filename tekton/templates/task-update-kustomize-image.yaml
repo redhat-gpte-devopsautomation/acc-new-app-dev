@@ -19,7 +19,7 @@ spec:
   - name: gitPath
     description: Path in the repository to work in
     type: string
-    default: {{ .Values.app.repo.gitops.path }}
+    default: {{ .Values.app.repo.gitops.path }}/{{ .Values.app.name }}
   - name: fileName
     description: Name of the file to be updated
     type: string
