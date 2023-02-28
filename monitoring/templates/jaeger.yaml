@@ -1,0 +1,26 @@
+---
+apiVersion: jaegertracing.io/v1
+kind: Jaeger
+metadata:
+  name: jaeger
+  namespace: {{ .Values.monitoringNamespace }}
+  labels:
+    app: jaeger
+    app.kubernetes.io/part-of: monitoring
+    name: jaeger
+    role: monitoring
+    # system: quarkus-super-heroes
+    system: jaeger
+spec:
+  strategy: allInOne
+  storage:
+    type: memory
+  labels:
+    app: jaeger
+    app.kubernetes.io/part-of: monitoring
+    name: jaeger
+    role: monitoring
+    # system: quarkus-super-heroes
+    system: jaeger
+  ingress:
+    security: none
