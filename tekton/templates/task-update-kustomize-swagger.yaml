@@ -29,13 +29,13 @@ spec:
     type: string
     default: {{ .Values.app.repo.gitops.path }}/rest-villains/kustomization.yaml
   - name: restFightsOpenapiServers
-    description: The mp.openapi.servers property to patch
+    description: The quarkus.smallrye-openapi.servers property to patch
     type: string
   - name: restHeroesOpenapiServers
-    description: The mp.openapi.servers property to patch
+    description: The quarkus.smallrye-openapi.servers property to patch
     type: string
   - name: restVillainsOpenapiServers
-    description: The mp.openapi.servers property to patch
+    description: The quarkus.smallrye-openapi.servers property to patch
     type: string
   - name: verbose
     description: Log the commands used during execution
@@ -81,9 +81,9 @@ spec:
         echo "**** Updating $(params.restVillainsOpenapiServers) to $(params.restVillainsKustomization)"
       fi
 
-      sed -r "s/^(\s*mp.openapi.servers\s*:\s*).*/\1$(params.restFightsOpenapiServers)/" -i ./$(params.restFightsKustomization)
-      sed -r "s/^(\s*mp.openapi.servers\s*:\s*).*/\1$(params.restHeroesOpenapiServers)/" -i ./$(params.restHeroesKustomization)
-      sed -r "s/^(\s*mp.openapi.servers\s*:\s*).*/\1$(params.restVillainsOpenapiServers)/" -i ./$(params.restVillainsKustomization)
+      sed -r "s/^(\s*quarkus.smallrye-openapi.servers\s*:\s*).*/\1$(params.restFightsOpenapiServers)/" -i ./$(params.restFightsKustomization)
+      sed -r "s/^(\s*quarkus.smallrye-openapi.servers\s*:\s*).*/\1$(params.restHeroesOpenapiServers)/" -i ./$(params.restHeroesKustomization)
+      sed -r "s/^(\s*quarkus.smallrye-openapi.servers\s*:\s*).*/\1$(params.restVillainsOpenapiServers)/" -i ./$(params.restVillainsKustomization)
 
   - name: commit-push-changes
     image: alpine/git:v2.26.2
@@ -97,7 +97,7 @@ spec:
       git config --global user.email "tekton@tekton.dev"
       git config --global user.name "OpenShift Pipelines"
       git add .
-      git commit --allow-empty -m "Update mp.openapi.servers"
+      git commit --allow-empty -m "Update quarkus.smallrye-openapi.servers"
       git push origin "$(params.gitRepositoryRevision)"
 
 #TODO use array of paths and openapiservers
