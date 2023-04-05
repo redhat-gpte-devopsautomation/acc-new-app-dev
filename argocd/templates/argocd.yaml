@@ -4,8 +4,10 @@ metadata:
   name: argocd
   namespace: {{ .Values.argocdNamespace }}
 spec:
-  dex:
-    openShiftOAuth: true
+  sso:
+    dex:
+      openShiftOAuth: true
+    provider: dex
   rbac:
     policy: |
       g, system:cluster-admins, role:admin
