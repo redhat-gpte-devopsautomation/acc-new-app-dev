@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Matt Hicks",
+    "level": 182000,
+    "picture": "https://static.rainfocus.com/redhat/sum23/att/1607629973118001QZKd/attprofile/Matt%20Hicks_1680030053451001Ivgm.jpg",
+    "powers": "President and CEO, Red Hat"
+  },
+  {
+    "name": "Stefanie Chiras",
+    "level": 3000,
+    "picture": "https://static.rainfocus.com/redhat/sum23/att/1604008133367001IXDL/attprofile/RHS23_SChiras_400px%20headshot_1680033476589001hq3E.jpg",
+    "powers": "Senior Vice President, Partner Ecosystem Success, Red Hat"
+  },
+  {
+    "name": "Tom Gilbert",
+    "level": 411,
+    "picture": "https://static.rainfocus.com/redhat/sum23/att/1619991047449001IaGS/attprofile/RHS23_TomGilbert_Barclays_400x400_1681839449354001TIVJ.png",
+    "powers": "Head of Cloud and Middleware, Group Technology Infrastructure Services, Barclays"
+  },
+  {
+    "name": "Chris Wright",
+    "level": 810,
+    "picture": "https://static.rainfocus.com/redhat/sum23/att/1604086512684001xKXR/attprofile/Chris%20Wright_1680030474237001n3RB.jpg",
+    "powers": "Chief Technology Officer and Senior Vice President, Global Engineering, Red Hat"
+  },
+  {
+    "name": "Ashesh Badani",
+    "level": 2000,
+    "picture": "https://static.rainfocus.com/redhat/sum23/att/1604008086348001L6qa/attprofile/Ashesh%20Badani_1680030302275001gM2d.jpg",
+    "powers": "Senior Vice President and Chief Product Officer, Red Hat"
+  },
+  {
+    "name": "Yamandú Tellechea",
+    "level": 1000,
+    "picture": "https://static.rainfocus.com/redhat/sum23/att/1618843650376001jsw7/attprofile/Yamandu_Tellechea_400x400_1683823185239001rmii.png",
+    "powers": "Middleware Automation Lead, Mutua Madrileña"
+  },
+  {
+    "name": "Mahesh Ramamoorthy",
+    "level": 520,
+    "picture": "https://static.rainfocus.com/redhat/sum23/att/1676274245678001n2gq/attprofile/Mahesh_Ramamoorthy_400x400_1680530160314001qO1O.jpg",
+    "powers": "Chief Information Officer (CIO), YES BANK Limited"
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Chris Morgan",
+    "level": 116,
+    "picture": "https://static.rainfocus.com/redhat/sum23/att/16062338671310016xRz/attprofile/RHS23_Chris%20Morgan_1681937356840001uTb8.jpeg",
+    "powers": "Senior Director, Red Hat"
+  },
+  {
+    "name": "Colin McNaughton",
+    "level": 209,
+    "picture": "https://static.rainfocus.com/redhat/sum23/att/1618341026533001O1F5/attprofile/Colin%20Day%201%20Demo%20400%20x%20400_1683642110055001iWxD.png",
+    "powers": "Principal Technical Marketing Manager, Red Hat"
+  },
+  {
+    "name": "Kaete Piccirilli",
+    "level": 356,
+    "picture": "https://static.rainfocus.com/redhat/sum23/att/1604074613627001s0g5/attprofile/CroppedHS_KaetePiccirilli_1679063698887001AVnO.jpg",
+    "powers": "Director, Product Marketing, Ansible Automation, Red Hat"
+  },
+  {
+    "name": "Emily Bock",
+    "level": 400,
+    "picture": "https://static.rainfocus.com/redhat/sum23/att/16281072432130018PYJ/attprofile/_RHS23_Emily%20Bock_1682654075603001JVhC.png",
+    "powers": "Senior Product Manager - Ansible, Red Hat"
+  },
+  {
+    "name": "Serena Chechile",
+    "level": 870,
+    "picture": "https://static.rainfocus.com/redhat/sum23/att/16062338743550016EsB/attprofile/SMACD_1679067057384001hJWm.jpg",
+    "powers": "Senior Principal Product Manager, Distinguished Engineer, Red Hat"
+  },
+  {
+    "name": "Erwan Granger",
+    "level": 233,
+    "picture": "https://static.rainfocus.com/redhat/sum23/att/16219499633050015YGI/attprofile/RHS23_Erwan%20Granger_1682654594222001kGlg.png",
+    "powers": "Senior Principal Architect, Red Hat"
+  },
+  {
+    "name": "Jeremy Winter",
+    "level": 122,
+    "picture": "https://static.rainfocus.com/redhat/sum23/att/1682374007478001zvAS/attprofile/RHS23_Jeremy%20Winter_MSFT_400x400_1682374313862001HfWI.png",
+    "powers": "Corporate Vice President, Azure Cloud Native, Microsoft"
+  }
+]
