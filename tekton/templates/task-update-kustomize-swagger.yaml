@@ -37,67 +37,28 @@ spec:
   - name: restVillainsOpenapiServers
     description: The quarkus.smallrye-openapi.servers property to patch
     type: string
-  - name: verbose
-    description: Log the commands used during execution
-    type: string
-    default: "true"
-  volumes:
-  - name: repository
-    emptyDir: {}
+  stepTemplate:
+    env:
+    - name: "HOME"
+      value: "/tekton/home"
   steps:
-  - name: git-checkout
-    image: alpine/git:v2.26.2
-    workingDir: "/workspace"
-    volumeMounts:
-    - name: repository
-      mountPath: /workspace/repository
+  - name: main
+    image: alpine/git:v2.43.0
+    workingDir: /workspace
     script: |
       #!/usr/bin/env sh
-      set -eu -o pipefail
+      set -eux -o pipefail
 
-      if [[ "$(params.verbose)" == "true" ]] ; then
-        set -x
-        echo "**** Cloning $(params.gitRepositoryUrl) into $(pwd)/repository"
-      fi
+      git config --global user.email "tekton@tekton.dev"
+      git config --global user.name "OpenShift Pipelines"
 
-      rm -rf $(pwd)/repo
-      git clone "$(params.gitRepositoryUrl)" $(pwd)/repository
-      cd repository
+      git clone "$(params.gitRepositoryUrl)" repo && cd repo
       git checkout "$(params.gitRepositoryRevision)"
-
-  - name: update-yaml
-    image: alpine/git:v2.26.2
-    workingDir: "/workspace/repository"
-    volumeMounts:
-    - name: repository
-      mountPath: /workspace/repository
-    script: |
-      #!/usr/bin/env sh
-      set -e
-
-      if [[ "$(params.verbose)" == "true" ]] ; then
-        echo "**** Updating $(params.restFightsOpenapiServers) to $(params.restFightsKustomization)"
-        echo "**** Updating $(params.restHeroesOpenapiServers) to $(params.restHeroesKustomization)"
-        echo "**** Updating $(params.restVillainsOpenapiServers) to $(params.restVillainsKustomization)"
-      fi
 
       sed -r "s/^(\s*quarkus.smallrye-openapi.servers\s*:\s*).*/\1$(params.restFightsOpenapiServers)/" -i ./$(params.restFightsKustomization)
       sed -r "s/^(\s*quarkus.smallrye-openapi.servers\s*:\s*).*/\1$(params.restHeroesOpenapiServers)/" -i ./$(params.restHeroesKustomization)
       sed -r "s/^(\s*quarkus.smallrye-openapi.servers\s*:\s*).*/\1$(params.restVillainsOpenapiServers)/" -i ./$(params.restVillainsKustomization)
 
-  - name: commit-push-changes
-    image: alpine/git:v2.26.2
-    workingDir: "/workspace/repository"
-    volumeMounts:
-    - name: repository
-      mountPath: /workspace/repository
-    script: |
-      #!/usr/bin/env sh
-      set -e
-      git config --global user.email "tekton@tekton.dev"
-      git config --global user.name "OpenShift Pipelines"
       git add .
       git commit --allow-empty -m "Update quarkus.smallrye-openapi.servers"
       git push origin "$(params.gitRepositoryRevision)"
-
-#TODO use array of paths and openapiservers
