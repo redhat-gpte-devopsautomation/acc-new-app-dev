@@ -21,10 +21,10 @@ spec:
         protocols:
           grpc:
     exporters:
-      jaeger:
-        endpoint: jaeger-collector-headless.{{ .Values.monitoringNamespace }}.svc:14250
+      otlp/jaeger:
+        endpoint: jaeger-collector-headless.{{ .Values.monitoringNamespace }}.svc:4317
         tls:
-          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt
+          insecure: true
     processors:
       batch:
     extensions:
@@ -39,4 +39,4 @@ spec:
           processors:
             - batch
           exporters:
-            - jaeger
+            - otlp/jaeger
